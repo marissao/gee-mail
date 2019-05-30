@@ -1,18 +1,74 @@
 <html>
 	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Gee-Mail</title>
 		<script src="js/mail-generator.js"></script>
-		<link href="css/style.css" rel="stylesheet" media="screen">
+		<link rel="stylesheet" href="css/style.css" media="screen">
     <script>
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        
+				// console.log('test')
+				
+				for(var i =0; i<window.geemails.length; i++){
+					// console.log(window.geemails[i]);
+					// console.log(window.geemails[i].date);
+					// console.log(window.geemails[i].sender);
+					// console.log(window.geemails[i].subject);
+					// console.log(window.geemails[i].body);
+
+					var message = document.createElement('div');
+					message.className = 'overviewMessage';
+					document.body.appendChild(message)
+
+					var dateBox = document.createElement('div');
+					dateBox.className = 'when';
+					dateBox.innerHTML = window.geemails[i].date;
+					document.body.appendChild(dateBox)
+					
+					var senderBox = document.createElement('div');
+					senderBox.className = 'who';
+					senderBox.innerHTML =  window.geemails[i].sender;
+					document.body.appendChild(senderBox)
+					
+					var subjectBox = document.createElement('div');
+					subjectBox.className = 'topic';
+					subjectBox.innerHTML =  window.geemails[i].subject;
+					document.body.appendChild(subjectBox)
+
+					var textBox = document.createElement('div');
+					textBox.className = 'entireMessage';
+					textBox.innerHTML =  window.geemails[i].body;
+					// document.body.appendChild(textBox)
+				}
+
+
+
+
       };
     </script>
 	</head>
+	
 	<body>
-		<div class="container" id="main">
-			Build Me!
-		</div>
+		<header id="intro">Gee-Mail</header>
+		
+		
 	</body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+
+<!-- For Q5: "you must show an inbox count somewhere on the page to show the current number of messages in your inbox." refer to HW this-events -->
