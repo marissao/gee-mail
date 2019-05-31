@@ -11,7 +11,8 @@
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
 				// console.log('test')
-				
+		
+
 				for(var i =0; i<window.geemails.length; i++){
 					// console.log(window.geemails[i]);
 					// console.log(window.geemails[i].date);
@@ -19,56 +20,58 @@
 					// console.log(window.geemails[i].subject);
 					// console.log(window.geemails[i].body);
 
-					var message = document.createElement('div');
-					message.className = 'overviewMessage';
-					document.body.appendChild(message)
+					var rowBox = document.createElement('div');
+					rowBox.className = 'row';
+					document.body.appendChild(rowBox)
+					// console.log(rowBox)
 
-					var dateBox = document.createElement('div');
+					var dateBox = document.createElement('span');
 					dateBox.className = 'when';
 					dateBox.innerHTML = window.geemails[i].date;
-					document.body.appendChild(dateBox)
+					rowBox.appendChild(dateBox)
 					
-					var senderBox = document.createElement('div');
+					var senderBox = document.createElement('span');
 					senderBox.className = 'who';
 					senderBox.innerHTML =  window.geemails[i].sender;
-					document.body.appendChild(senderBox)
+					rowBox.appendChild(senderBox)
 					
-					var subjectBox = document.createElement('div');
+					var subjectBox = document.createElement('span');
 					subjectBox.className = 'topic';
 					subjectBox.innerHTML =  window.geemails[i].subject;
-					document.body.appendChild(subjectBox)
+					rowBox.appendChild(subjectBox)
 
 					var textBox = document.createElement('div');
 					textBox.className = 'entireMessage';
 					textBox.innerHTML =  window.geemails[i].body;
-					// document.body.appendChild(textBox)
-				}
+					rowBox.appendChild(textBox)
+
+					var rowClass = document.getElementsByClassName('row');
+					// console.log(rowClass)
+					rowClass[i].addEventListener('click', showMessage);
+
+					function showMessage(){
+						var y = this.querySelector('.entireMessage');
+						if(y.style.display === 'block'){
+							y.style.display = 'none';
+						}else{
+							y.style.display = 'block';
+						}
+					}
 
 
 
+				} // END OF FOR LOOP
 
-      };
+      }; // END OF WINDOWS ONLOAD FUNCTION
     </script>
 	</head>
 	
 	<body>
 		<header id="intro">Gee-Mail</header>
+		<br>
 		
 		
 	</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
-</head>
-<body>
-	
-</body>
 </html>
 
 <!-- For Q5: "you must show an inbox count somewhere on the page to show the current number of messages in your inbox." refer to HW this-events -->

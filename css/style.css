@@ -1,3 +1,22 @@
 body{
     background-color: cornflowerblue;
 }
+
+.row{
+    border: 1px solid;
+    margin: 5px;
+    padding: 10px;
+}
+
+.when, .who, .topic{
+    border: 1px solid black;
+    margin: 10px;
+    padding: 5px;
+}
+
+.entireMessage{
+    background-color: white;
+    border: 1px solid black;
+    display: none;
+    margin: 10px;
+}
