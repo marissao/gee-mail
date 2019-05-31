@@ -1,5 +1,34 @@
 body{
     background-color: cornflowerblue;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    letter-spacing: .2px;
+}
+
+.sideNav{
+    height: 100%;
+    max-width: 240px;
+    min-width: 240px;
+    position: fixed;
+    z-index: 1;
+    top: 20px;
+    left: 10px;
+    overflow-x: hidden;
+    padding: 8px;
+}
+
+/* .sideNav a{
+    padding: 6px 8px 6px 16px;
+    font-size: 25px;
+    display: inline;
+} */
+
+/* .subBoxNav{
+    display: inline;
+} */
+
+.main{
+    margin-left: 240px;
 }
 
 .row{

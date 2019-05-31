@@ -6,12 +6,18 @@
 		<title>Gee-Mail</title>
 		<script src="js/mail-generator.js"></script>
 		<link rel="stylesheet" href="css/style.css" media="screen">
-    <script>
+		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+		<script>
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
 				// console.log('test')
 		
+				var mainBox = document.createElement('div');
+				mainBox.className = 'main';
+				document.body.appendChild(mainBox)
+				// console.log(mainBox)
 
 				for(var i =0; i<window.geemails.length; i++){
 					// console.log(window.geemails[i]);
@@ -22,7 +28,7 @@
 
 					var rowBox = document.createElement('div');
 					rowBox.className = 'row';
-					document.body.appendChild(rowBox)
+					mainBox.appendChild(rowBox)
 					// console.log(rowBox)
 
 					var dateBox = document.createElement('span');
@@ -50,26 +56,76 @@
 					rowClass[i].addEventListener('click', showMessage);
 
 					function showMessage(){
-						var y = this.querySelector('.entireMessage');
-						if(y.style.display === 'block'){
-							y.style.display = 'none';
+						var popOutMessage = this.querySelector('.entireMessage');
+						if(popOutMessage.style.display === 'block'){
+							popOutMessage.style.display = 'none';
 						}else{
-							y.style.display = 'block';
+							popOutMessage.style.display = 'block';
 						}
-					}
-
-
+					} // END OF FUNCTION SHOWMESSAGE
 
 				} // END OF FOR LOOP
 
+
+				var numberOfRows = document.getElementsByClassName('row');
+				// console.log(numberOfRows)
+
+				function countMessage(x){
+					return x.length;
+				}
+				// console.log(countMessage(numberOfRows))
+
+				var sideNavInboxCount = document.createElement('div');
+				sideNavInboxCount.id = 'counter';
+				sideNavInboxCount.innerHTML= countMessage(numberOfRows);
+				amount.appendChild(sideNavInboxCount)
+				
+
+			
       }; // END OF WINDOWS ONLOAD FUNCTION
     </script>
 	</head>
 	
 	<body>
-		<header id="intro">Gee-Mail</header>
+		<header id="headerBox">Gee-Mail</header>
 		<br>
 		
+		<div class="sideNav">
+			<div class="subBoxNav">
+					<span>
+						<a href="#inbox">Inbox</a>
+						<span class="fas fa-inbox"></span>
+						<div id="amount"></div>
+					</span>
+					
+					
+				
+			</div>
+		
+			<div class="subBoxNav">
+				<a href="#starred">Starred</a>
+			</div>
+
+			<div class="subBoxNav">
+				<a href="#snoozed">Snoozed</a>
+			</div>
+
+			<div class="subBoxNav">
+					<a href="#sent">Sent</a>
+			</div>
+
+			<div class="subBoxNav">
+					<a href="#drafts">Drafts</a>
+			</div>
+	
+			
+				
+					
+					
+
+				</div>
+				
+		</div>
 		
 	</body>
 </html>
