@@ -64,22 +64,72 @@
 						}
 					} // END OF FUNCTION SHOWMESSAGE
 
+					
 				} // END OF FOR LOOP
+				
+				
 
 
+
+				// console.log(getNewMessage());
+	
+				var nm = getNewMessage();
+
+				function addNew(){
+					var rowBox = document.createElement('div');
+					rowBox.className = 'row';
+					mainBox.appendChild(rowBox)
+					// console.log(rowBox)
+
+					var dateBox = document.createElement('span');
+					dateBox.className = 'when';
+					dateBox.innerHTML = nm.date;
+					rowBox.appendChild(dateBox)
+					
+					var senderBox = document.createElement('span');
+					senderBox.className = 'who';
+					senderBox.innerHTML =  nm.sender;
+					rowBox.appendChild(senderBox)
+					
+					var subjectBox = document.createElement('span');
+					subjectBox.className = 'topic';
+					subjectBox.innerHTML =  nm.subject;
+					rowBox.appendChild(subjectBox)
+
+					var textBox = document.createElement('div');
+					textBox.className = 'entireMessage';
+					textBox.innerHTML =  nm.body;
+					rowBox.appendChild(textBox)
+
+					var rowClass = document.getElementsByClassName('row');
+					// console.log(rowClass)
+					rowClass[i].addEventListener('click', showMessage);
+
+					function showMessage(){
+						var popOutMessage = this.querySelector('.entireMessage');
+						if(popOutMessage.style.display === 'block'){
+							popOutMessage.style.display = 'none';
+						}else{
+							popOutMessage.style.display = 'block';
+						}
+					} // END OF FUNCTION SHOWMESSAGE
+
+
+				}
+			
+				addNew();
+				setInterval(addNew, 3000);
+			
 				var numberOfRows = document.getElementsByClassName('row');
 				// console.log(numberOfRows)
-
 				function countMessage(x){
 					return x.length;
 				}
 				// console.log(countMessage(numberOfRows))
-
 				var sideNavInboxCount = document.createElement('div');
 				sideNavInboxCount.id = 'counter';
 				sideNavInboxCount.innerHTML= countMessage(numberOfRows);
 				amount.appendChild(sideNavInboxCount)
-				
 
 			
       }; // END OF WINDOWS ONLOAD FUNCTION
@@ -129,5 +179,3 @@
 		
 	</body>
 </html>
-
-<!-- For Q5: "you must show an inbox count somewhere on the page to show the current number of messages in your inbox." refer to HW this-events -->
