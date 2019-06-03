@@ -97,12 +97,7 @@
 					textBox.innerHTML =  newMessage.body;
 					rowBox.appendChild(textBox)
 
-				} // END OF FUNCTION PRODUCENEWMESSAGE 
-			
-				produceNewMessage();
-				// produceNewMessage();
-
-				var rowClass = document.getElementsByClassName('row');
+					var rowClass = document.getElementsByClassName('row');
 					rowClass[i].addEventListener('click', showMessage);
 
 					function showMessage(){
@@ -112,9 +107,13 @@
 						}else{
 							popOutMessage.style.display = 'block';
 						}
-					} // END OF FUNCTION SHOWMESSAGE			
+					} // END OF FUNCTION SHOWMESSAGE		
 
-
+					
+				} // END OF FUNCTION PRODUCENEWMESSAGE 
+			
+				produceNewMessage();
+				// produceNewMessage();
 				setInterval(produceNewMessage, 3000);
 			
 				// var numberOfRows = document.getElementsByClassName('row');
