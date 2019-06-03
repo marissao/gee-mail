@@ -76,6 +76,7 @@
 					var rowBox = document.createElement('div');
 					rowBox.className = 'row';
 					mainBox.appendChild(rowBox)
+					rowBox.addEventListener('click', showMessage);
 
 					var dateBox = document.createElement('span');
 					dateBox.className = 'when';
@@ -97,9 +98,6 @@
 					textBox.innerHTML =  newMessage.body;
 					rowBox.appendChild(textBox)
 
-					var rowClass = document.getElementsByClassName('row');
-					rowClass[i].addEventListener('click', showMessage);
-
 					function showMessage(){
 						var popOutMessage = this.querySelector('.entireMessage');
 						if(popOutMessage.style.display === 'block'){
@@ -109,15 +107,13 @@
 						}
 					} // END OF FUNCTION SHOWMESSAGE		
 
-					
+					setInterval(produceNewMessage, 3000);
 				} // END OF FUNCTION PRODUCENEWMESSAGE 
 			
 				produceNewMessage();
-				// produceNewMessage();
-				setInterval(produceNewMessage, 3000);
 			
-				// var numberOfRows = document.getElementsByClassName('row');
-				// // console.log(numberOfRows)
+				var numberOfRows = document.getElementsByClassName('row');
+				console.log(numberOfRows)
 				// function countMessage(x){
 				// 	return x.length;
 				// }
