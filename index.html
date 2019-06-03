@@ -107,21 +107,25 @@
 						}
 					} // END OF FUNCTION SHOWMESSAGE		
 
-					setInterval(produceNewMessage, 3000);
+					
 				} // END OF FUNCTION PRODUCENEWMESSAGE 
 			
 				produceNewMessage();
-			
-				var numberOfRows = document.getElementsByClassName('row');
-				console.log(numberOfRows)
-				// function countMessage(x){
-				// 	return x.length;
-				// }
-				// // console.log(countMessage(numberOfRows))
-				// var sideNavInboxCount = document.createElement('div');
-				// sideNavInboxCount.id = 'counter';
-				// sideNavInboxCount.innerHTML= countMessage(numberOfRows);
-				// amount.appendChild(sideNavInboxCount)
+				// setInterval(produceNewMessage, 3000);
+
+				var x = document.getElementsByClassName('row');
+
+				var sideNavInboxCount = document.createElement('div');
+				sideNavInboxCount.id = 'counter';
+				sideNavInboxCount.innerHTML= countMessage();
+				// sideNavInboxCount.innerHTML = 'test';
+				amount.appendChild(sideNavInboxCount)
+
+				function countMessage(){
+					var counter = rowBox.length;
+					var timer = setInterval(produceNewMessage, 3000);
+				}
+				
 
 			
       }; // END OF WINDOWS ONLOAD FUNCTION
