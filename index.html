@@ -67,42 +67,42 @@
 					
 				} // END OF FOR LOOP
 				
-				
+				// console.log(getNewMessage())
+				// console.log(getNewMessage()) | Second console.log(getNewMessage) shows a different message but same date.
 
+				function produceNewMessage(){
+					var newMessage = getNewMessage();
 
-
-				// console.log(getNewMessage());
-	
-				var nm = getNewMessage();
-
-				function addNew(){
 					var rowBox = document.createElement('div');
 					rowBox.className = 'row';
 					mainBox.appendChild(rowBox)
-					// console.log(rowBox)
 
 					var dateBox = document.createElement('span');
 					dateBox.className = 'when';
-					dateBox.innerHTML = nm.date;
+					dateBox.innerHTML = newMessage.date;
 					rowBox.appendChild(dateBox)
 					
 					var senderBox = document.createElement('span');
 					senderBox.className = 'who';
-					senderBox.innerHTML =  nm.sender;
+					senderBox.innerHTML =  newMessage.sender;
 					rowBox.appendChild(senderBox)
 					
 					var subjectBox = document.createElement('span');
 					subjectBox.className = 'topic';
-					subjectBox.innerHTML =  nm.subject;
+					subjectBox.innerHTML =  newMessage.subject;
 					rowBox.appendChild(subjectBox)
 
 					var textBox = document.createElement('div');
 					textBox.className = 'entireMessage';
-					textBox.innerHTML =  nm.body;
+					textBox.innerHTML =  newMessage.body;
 					rowBox.appendChild(textBox)
 
-					var rowClass = document.getElementsByClassName('row');
-					// console.log(rowClass)
+				} // END OF FUNCTION PRODUCENEWMESSAGE 
+			
+				produceNewMessage();
+				// produceNewMessage();
+
+				var rowClass = document.getElementsByClassName('row');
 					rowClass[i].addEventListener('click', showMessage);
 
 					function showMessage(){
@@ -112,24 +112,21 @@
 						}else{
 							popOutMessage.style.display = 'block';
 						}
-					} // END OF FUNCTION SHOWMESSAGE
+					} // END OF FUNCTION SHOWMESSAGE			
 
 
-				}
+				setInterval(produceNewMessage, 3000);
 			
-				addNew();
-				setInterval(addNew, 3000);
-			
-				var numberOfRows = document.getElementsByClassName('row');
-				// console.log(numberOfRows)
-				function countMessage(x){
-					return x.length;
-				}
-				// console.log(countMessage(numberOfRows))
-				var sideNavInboxCount = document.createElement('div');
-				sideNavInboxCount.id = 'counter';
-				sideNavInboxCount.innerHTML= countMessage(numberOfRows);
-				amount.appendChild(sideNavInboxCount)
+				// var numberOfRows = document.getElementsByClassName('row');
+				// // console.log(numberOfRows)
+				// function countMessage(x){
+				// 	return x.length;
+				// }
+				// // console.log(countMessage(numberOfRows))
+				// var sideNavInboxCount = document.createElement('div');
+				// sideNavInboxCount.id = 'counter';
+				// sideNavInboxCount.innerHTML= countMessage(numberOfRows);
+				// amount.appendChild(sideNavInboxCount)
 
 			
       }; // END OF WINDOWS ONLOAD FUNCTION
@@ -147,9 +144,6 @@
 						<span class="fas fa-inbox"></span>
 						<div id="amount"></div>
 					</span>
-					
-					
-				
 			</div>
 		
 			<div class="subBoxNav">
